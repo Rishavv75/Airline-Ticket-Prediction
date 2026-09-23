@@ -84,7 +84,21 @@ function FlightForm({ metadata, onPrediction, onError }) {
 
   throw new Error(errorMessage);
 }
-      onPrediction(data);
+     onPrediction({
+  ...data,
+  flight: {
+    airline: formData.airline,
+    date_of_journey: formData.date_of_journey,
+    source: formData.source,
+    destination: formData.destination,
+    route: formData.route,
+    departure_time: formData.departure_time,
+    arrival_time: formData.arrival_time,
+    duration: formData.duration,
+    total_stops: formData.total_stops,
+    additional_info: formData.additional_info,
+  },
+});
     } catch (error) {
       console.error(error);
       onError(error.message);

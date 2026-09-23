@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ML artifacts
+*.pkl
+*.joblib
+
+# Keep the final production model
+!ml/models/
+!ml/models/final_pipeline.joblib
+
+# Raw/processed datasets
+data/raw/*
+data/processed/*
+
+# Node
+node_modules/
+dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

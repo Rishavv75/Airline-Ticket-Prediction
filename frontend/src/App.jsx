@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { getMetadata } from "./services/api";
 import FlightForm from "./components/FlightForm";
 import PredictionCard from "./components/PredictionCard";
+import ModelInsights from "./components/ModelInsights";
+import ModelComparison from "./components/ModelComparison";
+import HowItWorks from "./components/HowItWorks";
 
 function App() {
   const [metadata, setMetadata] = useState(null);
@@ -95,20 +98,27 @@ function App() {
         )}
 
         {metadata && (
-          <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
+  <>
+    <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
 
-            <FlightForm
-              metadata={metadata}
-              onPrediction={handlePrediction}
-              onError={handleError}
-            />
+      <FlightForm
+        metadata={metadata}
+        onPrediction={handlePrediction}
+        onError={handleError}
+      />
 
-            <div className="lg:sticky lg:top-8 lg:self-start">
-              <PredictionCard prediction={prediction} />
-            </div>
+      <div className="lg:sticky lg:top-8 lg:self-start">
+        <PredictionCard prediction={prediction} />
+      </div>
 
-          </div>
-        )}
+    </div>
+    <HowItWorks />
+    <ModelComparison />
+    <ModelInsights />
+
+    
+  </>
+)}
 
       </main>
 
